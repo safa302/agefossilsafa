@@ -3,11 +3,12 @@ import pickle
 import pandas as pd
 
 # Load the pre-trained model (Random Forest or Gradient Boosting)
-
+rf_pickle_path = 'random_forest_model.pkl'
 gb_pickle_path = 'gradient_boosting_model.pkl'
 
 with open(rf_pickle_path, 'rb') as rf_file:
     rf_model = pickle.load(rf_file)
+
 with open(gb_pickle_path, 'rb') as gb_file:
     gb_model = pickle.load(gb_file)
 
@@ -39,9 +40,10 @@ model_option = st.selectbox("Pilih Model:", ("Random Forest", "Gradient Boosting
 
 # Make prediction button
 if st.button("Prediksi"):
-    if model_option == "Gradient boosting":
-        prediction = make_prediction(gb_model, input_data)
+    if model_option == "Random Forest":
+        prediction = make_prediction(rf_model, input_data)
     else:
         prediction = make_prediction(gb_model, input_data)
     
     st.success(f"Hasil Prediksi Usia Fosil: {prediction} tahun")
+
