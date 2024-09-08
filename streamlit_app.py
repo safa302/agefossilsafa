@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 
 # Load the pre-trained model (Random Forest or Gradient Boosting)
-rf_pickle_path = 'random_forest_model.pkl'
+rf_pickle_path = 'random_forest_model_compressed.pkl.gz'
 gb_pickle_path = 'gradient_boosting_model.pkl'
 
 with open(rf_pickle_path, 'rb') as rf_file:
